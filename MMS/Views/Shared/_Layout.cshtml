@@ -1,0 +1,28 @@
+﻿@using System.Web.Optimization
+@using MMS.Controllers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <script>
+        var Global = {};
+        Global.Host = '@Configuration.Settings.Host';
+        Global.API = {};
+        Global.API.Members = '@Configuration.Settings.Members';
+        Global.API.Create = '@Configuration.Settings.Create';
+        Global.API.Edit = '@Configuration.Settings.Edit';
+        Global.API.Delete = '@Configuration.Settings.Delete';
+        Global.API.Search = '@Configuration.Settings.Search';
+    </script>
+
+    @RenderBody()
+</body>
+</html>
